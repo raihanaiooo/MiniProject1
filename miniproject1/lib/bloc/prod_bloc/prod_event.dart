@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:miniproject1/bloc/prod_bloc.dart';
-import 'package:miniproject1/bloc/prod_state.dart';
+import 'package:miniproject1/bloc/prod_bloc/prod_bloc.dart';
+import 'package:miniproject1/bloc/prod_bloc/prod_state.dart';
 import 'package:flutter/material.dart';
 
 @immutable
