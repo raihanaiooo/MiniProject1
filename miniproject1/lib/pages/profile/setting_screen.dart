@@ -147,23 +147,6 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 50),
-          BottomNavigationBar(
-            currentIndex: 2,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: 'Applications',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_2_outlined),
-                label: 'Profile',
-              ),
-            ],
-          ),
         ],
       ),
     );

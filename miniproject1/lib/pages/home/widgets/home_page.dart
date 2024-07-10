@@ -1,0 +1,182 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:miniproject1/bloc/prod_bloc/prod_bloc.dart';
+import 'package:miniproject1/models/model.dart';
+import 'package:miniproject1/pages/home/widgets/balance_box.dart';
+
+import '../../../service/repo.dart';
+import 'category_box.dart';
+
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => ProdBloc(Repo())..add(LoadEvent()),
+      child: BlocBuilder<ProdBloc, ProdState>(
+        builder: (context, state) {
+          if (state is Loading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (state is Error) {
+            return Center(child: Text("Error: ${state.error}"));
+          }
+          if (state is Loaded) {
+            List<Model> prodList = state.models;
+            return CustomScrollView(
+              slivers: <Widget>[
+                SliverToBoxAdapter(
+                  child: BalanceBox(),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: GridView.count(
+                      crossAxisCount: 4,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: 0.75,
+                      children: const [
+                        CategoryBox(
+                          categoryName: 'Category 1',
+                          categoryIcon: Icons.category,
+                        ),
+                        CategoryBox(
+                          categoryName: 'Category 2',
+                          categoryIcon: Icons.category,
+                        ),
+                        CategoryBox(
+                          categoryName: 'Category 3',
+                          categoryIcon: Icons.category,
+                        ),
+                        CategoryBox(
+                          categoryName: 'Category 4',
+                          categoryIcon: Icons.category,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                  sliver: SliverGrid(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 0.75,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return Container(
+                          width: 140,
+                          height: 190,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            color: Colors.white,
+                            elevation: 4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(10),
+                                  ),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 90,
+                                    child: Image.network(
+                                      prodList[index].image ?? '',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 6,
+                                    horizontal: 10,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '${prodList[index].title}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 8,
+                                        ),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        '\$${prodList[index].price}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Spacer(),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 15,
+                                    horizontal: 10,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.star,
+                                        color: Colors.yellow,
+                                        size: 8,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        '${prodList[index].rating?.rate}',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 8,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        '(${prodList[index].rating?.count}) sold',
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 8,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                      childCount: prodList.length,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }
+          return Container();
+        },
+      ),
+    );
+  }
+}
