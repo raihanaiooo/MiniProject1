@@ -123,7 +123,6 @@ class HomePage extends StatelessWidget {
               slivers: <Widget>[
                 SliverAppBar(
                   backgroundColor: Colors.transparent,
-                  expandedHeight: 200.0,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(
                       children: [
@@ -133,7 +132,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          top: -320,
+                          top: -200,
                           bottom: 0,
                           left: -15,
                           child: Container(
@@ -149,25 +148,55 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                SliverToBoxAdapter(
+                  child: BalanceBox(),
+                ),
+                SliverPadding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                  sliver: SliverGrid.count(
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 0.75,
+                    children: [
+                      CategoryBox(
+                        categoryName: 'Category 1',
+                        categoryIcon: Icons.category,
+                      ),
+                      CategoryBox(
+                        categoryName: 'Category 2',
+                        categoryIcon: Icons.category,
+                      ),
+                      CategoryBox(
+                        categoryName: 'Category 3',
+                        categoryIcon: Icons.category,
+                      ),
+                      CategoryBox(
+                        categoryName: 'Category 4',
+                        categoryIcon: Icons.category,
+                      ),
+                    ],
+                  ),
+                ),
                 SliverGrid(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    childAspectRatio: 0.75, // Adjusted for better aspect ratio
+                    childAspectRatio: 0.75,
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
                       return Container(
-                        width: 140, // Reduced width for better spacing
-                        height: 190, // Reduced height
+                        width: 140,
+                        height: 190,
                         child: Card(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
                           color: Colors.white,
-                          elevation:
-                              4, // Added elevation for drop shadow effect
+                          elevation: 4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -177,7 +206,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 90, // Reduced image height
+                                  height: 90,
                                   child: Image.network(
                                     prodList[index].image ?? '',
                                     fit: BoxFit.cover,
@@ -186,7 +215,9 @@ class HomePage extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    vertical: 6, horizontal: 10),
+                                  vertical: 6,
+                                  horizontal: 10,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -204,21 +235,27 @@ class HomePage extends StatelessWidget {
                                     Text(
                                       '\$${prodList[index].price}',
                                       style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold),
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Spacer(), // Pushes the rating and count to the bottom
+                              Spacer(),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    vertical: 15, horizontal: 10),
+                                  vertical: 15,
+                                  horizontal: 10,
+                                ),
                                 child: Row(
                                   children: [
-                                    const Icon(Icons.star,
-                                        color: Colors.yellow, size: 8),
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                      size: 8,
+                                    ),
                                     const SizedBox(width: 4),
                                     Text(
                                       '${prodList[index].rating?.rate}',
@@ -252,6 +289,145 @@ class HomePage extends StatelessWidget {
           }
           return Container();
         },
+      ),
+    );
+  }
+}
+
+class CategoryBox extends StatelessWidget {
+  final String categoryName;
+  final IconData categoryIcon;
+
+  const CategoryBox({
+    Key? key,
+    required this.categoryName,
+    required this.categoryIcon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 6,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min, // Set mainAxisSize to min
+        children: [
+          Icon(categoryIcon, size: 15),
+          SizedBox(height: 8),
+          Text(
+            categoryName,
+            style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class BalanceBox extends StatelessWidget {
+  const BalanceBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8, // Mengurangi lebar box
+        padding: const EdgeInsets.symmetric(
+            horizontal: 8.0, vertical: 5.0), // Mengurangi padding horizontal
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 6,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 8.0), // Padding kiri untuk balance
+              child: Row(
+                children: [
+                  Icon(Icons.attach_money,
+                      size: 24, color: Color.fromRGBO(30, 126, 212, 1)),
+                  SizedBox(width: 2), // Mengurangi jarak antara ikon dan teks
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '1,000',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(30, 126, 212, 1),
+                        ),
+                      ),
+                      SizedBox(height: 2), // Mengurangi jarak antara teks
+                      Text(
+                        'Top Up',
+                        style: TextStyle(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  right: 8.0), // Padding kanan untuk voucher
+              child: Row(
+                children: [
+                  Icon(Icons.card_giftcard,
+                      size: 24, color: Color.fromRGBO(30, 126, 212, 1)),
+                  SizedBox(width: 2), // Mengurangi jarak antara ikon dan teks
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'My Voucher',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(30, 126, 212, 1),
+                        ),
+                      ),
+                      SizedBox(height: 2), // Mengurangi jarak antara teks
+                      Text(
+                        '8 new vouchers',
+                        style: TextStyle(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
