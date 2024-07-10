@@ -1,7 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:miniproject1/bloc/prod_bloc.dart';
-import 'package:miniproject1/model/model.dart';
-import 'package:flutter/material.dart';
+part of 'prod_bloc.dart';
 
 @immutable
 abstract class ProdState extends Equatable {}

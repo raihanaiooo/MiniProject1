@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:miniproject1/bloc/prod_bloc.dart';
-import 'package:miniproject1/bloc/prod_event.dart';
-import 'package:miniproject1/bloc/prod_state.dart';
-import 'package:miniproject1/model/model.dart';
+import 'package:miniproject1/bloc/prod_bloc/prod_bloc.dart';
+import 'package:miniproject1/models/model.dart';
 import 'package:miniproject1/service/repo.dart';
 
 class Home extends StatefulWidget {
@@ -38,11 +36,9 @@ class _HomeState extends State<Home> {
       ],
       child: Scaffold(
         backgroundColor: Colors.white,
-        extendBodyBehindAppBar: true, // Extend body behind app bar
         appBar: AppBar(
-          backgroundColor:
-              Colors.transparent, // Set app bar background to transparent
-          elevation: 0, // No shadow
+          backgroundColor: Colors.blueAccent,
+          elevation: 0,
           title: Container(
             width: MediaQuery.of(context).size.width * 0.7,
             height: 40,
@@ -62,16 +58,12 @@ class _HomeState extends State<Home> {
             IconButton(
               icon: Icon(Icons.notifications),
               color: Colors.white,
-              onPressed: () {
-                // Handle notification action
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(Icons.shopping_cart),
               color: Colors.white,
-              onPressed: () {
-                // Handle cart action
-              },
+              onPressed: () {},
             ),
           ],
         ),
@@ -322,7 +314,7 @@ class CategoryBox extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min, // Set mainAxisSize to min
+        mainAxisSize: MainAxisSize.min,
         children: [
           Icon(categoryIcon, size: 15),
           SizedBox(height: 8),
@@ -343,9 +335,8 @@ class BalanceBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.8, // Mengurangi lebar box
-        padding: const EdgeInsets.symmetric(
-            horizontal: 8.0, vertical: 5.0), // Mengurangi padding horizontal
+        width: MediaQuery.of(context).size.width * 0.8,
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -361,13 +352,12 @@ class BalanceBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                  left: 8.0), // Padding kiri untuk balance
+              padding: const EdgeInsets.only(left: 8.0),
               child: Row(
                 children: [
                   Icon(Icons.attach_money,
                       size: 24, color: Color.fromRGBO(30, 126, 212, 1)),
-                  SizedBox(width: 2), // Mengurangi jarak antara ikon dan teks
+                  SizedBox(width: 2),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -379,7 +369,7 @@ class BalanceBox extends StatelessWidget {
                           color: Color.fromRGBO(30, 126, 212, 1),
                         ),
                       ),
-                      SizedBox(height: 2), // Mengurangi jarak antara teks
+                      SizedBox(height: 2),
                       Text(
                         'Top Up',
                         style: TextStyle(
@@ -394,13 +384,12 @@ class BalanceBox extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  right: 8.0), // Padding kanan untuk voucher
+              padding: const EdgeInsets.only(right: 8.0),
               child: Row(
                 children: [
                   Icon(Icons.card_giftcard,
                       size: 24, color: Color.fromRGBO(30, 126, 212, 1)),
-                  SizedBox(width: 2), // Mengurangi jarak antara ikon dan teks
+                  SizedBox(width: 2),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -412,7 +401,7 @@ class BalanceBox extends StatelessWidget {
                           color: Color.fromRGBO(30, 126, 212, 1),
                         ),
                       ),
-                      SizedBox(height: 2), // Mengurangi jarak antara teks
+                      SizedBox(height: 2),
                       Text(
                         '8 new vouchers',
                         style: TextStyle(
