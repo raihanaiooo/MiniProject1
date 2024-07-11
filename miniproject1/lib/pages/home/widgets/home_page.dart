@@ -7,7 +7,6 @@ import 'package:miniproject1/pages/home/widgets/balance_box.dart';
 import '../../../service/repo.dart';
 import 'category_box.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -32,44 +31,40 @@ class HomePage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: BalanceBox(),
                 ),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: GridView.count(
-                      crossAxisCount: 4,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 0.75,
-                      children: const [
-                        CategoryBox(
-                          categoryName: 'Category 1',
-                          categoryIcon: Icons.category,
-                        ),
-                        CategoryBox(
-                          categoryName: 'Category 2',
-                          categoryIcon: Icons.category,
-                        ),
-                        CategoryBox(
-                          categoryName: 'Category 3',
-                          categoryIcon: Icons.category,
-                        ),
-                        CategoryBox(
-                          categoryName: 'Category 4',
-                          categoryIcon: Icons.category,
-                        ),
-                      ],
-                    ),
+                SliverPadding(
+                  padding: const EdgeInsets.all(16.0),
+                  sliver: SliverGrid.count(
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 0.85,
+                    children: [
+                      CategoryBox(
+                        categoryName: 'Food',
+                        categoryIcon: Icons.food_bank,
+                      ),
+                      CategoryBox(
+                        categoryName: 'Electronic',
+                        categoryIcon: Icons.phone,
+                      ),
+                      CategoryBox(
+                        categoryName: 'Art',
+                        categoryIcon: Icons.brush,
+                      ),
+                      CategoryBox(
+                        categoryName: 'Gaming',
+                        categoryIcon: Icons.gamepad,
+                      ),
+                    ].map((categoryBox) => Center(child: categoryBox)).toList(),
                   ),
                 ),
                 SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   sliver: SliverGrid(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
                       childAspectRatio: 0.75,
                     ),
                     delegate: SliverChildBuilderDelegate(
@@ -105,14 +100,15 @@ class HomePage extends StatelessWidget {
                                     horizontal: 10,
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         '${prodList[index].title}',
                                         style: const TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w300,
-                                          fontSize: 8,
+                                          fontSize: 10,
                                         ),
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
@@ -131,16 +127,14 @@ class HomePage extends StatelessWidget {
                                 ),
                                 Spacer(),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 15,
-                                    horizontal: 10,
-                                  ),
+                                  padding: const EdgeInsets.only(
+                                      bottom: 10, left: 10),
                                   child: Row(
                                     children: [
                                       const Icon(
                                         Icons.star,
                                         color: Colors.yellow,
-                                        size: 8,
+                                        size: 12,
                                       ),
                                       const SizedBox(width: 4),
                                       Text(
