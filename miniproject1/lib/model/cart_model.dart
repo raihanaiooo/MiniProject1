@@ -1,19 +1,25 @@
+import 'package:miniproject1/model/product_quantity_cart_model.dart';
+
 class Cart {
   final int id;
   final int userId;
-  final String date;
+  final DateTime date;
+  final List<ProductQuantity> products;
 
-  const Cart({required this.id, required this.userId, required this.date});
+  const Cart(
+      {required this.id,
+      required this.userId,
+      required this.date,
+      required this.products});
 
   factory Cart.fromJson(Map<String, dynamic> json) {
-    return switch (json) {
-      {
-        'id': int id,
-        'userId': int userId,
-        'date': String date,
-      } =>
-        Cart(id: id, userId: userId, date: date),
-      _ => throw const FormatException("Fetching failed!"),
-    };
+    return Cart(
+      id: json['id'],
+      userId: json['userId'],
+      date: DateTime.parse(json['date']),
+      products: (json['products'] as List)
+          .map((productJson) => ProductQuantity.fromJson(productJson))
+          .toList(),
+    );
   }
 }

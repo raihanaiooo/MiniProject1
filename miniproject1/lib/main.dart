@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:miniproject1/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,16 +8,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Hello World App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello World App'),
-        ),
-        body: Center(
-          child: Text('Hello, World!'),
-        ),
-      ),
+      routerConfig: router,
     );
   }
 }
