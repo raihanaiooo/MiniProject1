@@ -6,7 +6,7 @@ class BalanceBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0), // Adjust top padding as needed
+      padding: const EdgeInsets.only(top: 20.0),
       child: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,

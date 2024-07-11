@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         appBar: showAppBar
             ? AppBar(
-                backgroundColor: Colors.blueAccent,
+                backgroundColor: Color.fromRGBO(30, 126, 212, 1),
                 elevation: 0,
                 title: Container(
                   width: MediaQuery.of(context).size.width * 0.7,
