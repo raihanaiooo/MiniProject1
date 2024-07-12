@@ -8,4 +8,6 @@ class Styles {
   );
 
   static final TextStyle title = GoogleFonts.plusJakartaSans(fontSize: 14);
+
+  static final TextStyle register = GoogleFonts.raleway();
 }

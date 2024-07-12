@@ -6,6 +6,7 @@ import 'package:miniproject1/pages/cart/shipping_page.dart';
 import 'package:miniproject1/pages/cart/transfer.dart';
 import 'package:miniproject1/pages/product/home.dart';
 import 'package:miniproject1/pages/profile/setting_screen.dart';
+import 'package:miniproject1/register_page.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/home',
@@ -48,6 +49,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/settings',
       builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => RegisterPage(),
     ),
   ],
 );
