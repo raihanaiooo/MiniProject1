@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:miniproject1/bloc/cart/cart_bloc.dart';
-import 'package:miniproject1/bloc/cart_products/cart_products_bloc.dart';
-import 'package:miniproject1/bloc/cart_products/cart_products_event.dart';
-import 'package:miniproject1/bloc/cart_products/cart_products_state.dart';
-import 'package:miniproject1/checkbox.dart';
-import 'package:miniproject1/counter.dart';
 import 'package:miniproject1/model/cart_model.dart';
 import 'package:miniproject1/model/product_cart_model.dart';
+import 'package:miniproject1/pages/cart/utility/checkbox.dart';
 import 'package:miniproject1/resources/colors.dart';
 import 'package:miniproject1/resources/styles.dart';
-import 'package:miniproject1/services/cart_product_repository.dart';
-import 'package:miniproject1/services/cart_repository.dart';
+import 'package:miniproject1/services/cart/cart_product_repository.dart';
+import 'package:miniproject1/services/cart/cart_repository.dart';
 
-import 'bloc/cart/cart_event.dart';
-import 'bloc/cart/cart_state.dart';
-import 'model/product_quantity_cart_model.dart';
+import '../../bloc/cart/cart_event.dart';
+import '../../bloc/cart/cart_products/cart_products_bloc.dart';
+import '../../bloc/cart/cart_products/cart_products_event.dart';
+import '../../bloc/cart/cart_products/cart_products_state.dart';
+import '../../bloc/cart/cart_state.dart';
+import '../../model/product_quantity_cart_model.dart';
+import 'utility/counter.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -59,12 +59,12 @@ class _CartPageState extends State<CartPage> {
         backgroundColor: secondaryColor, // Set the background color here
         appBar: AppBar(
           backgroundColor: secondaryColor,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+          // leading: IconButton(
+          //   icon: Icon(Icons.arrow_back_ios_new),
+          //   onPressed: () {
+          //     Navigator.of(context).pop();
+          //   },
+          // ),
           title: Text(
             'Cart',
             style: Styles.appbarText.copyWith(color: primaryText),

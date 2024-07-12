@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:miniproject1/bloc/prod_bloc.dart';
-import 'package:miniproject1/bloc/prod_event.dart';
-import 'package:miniproject1/bloc/prod_state.dart';
 import 'package:miniproject1/model/model.dart';
-import 'package:miniproject1/service/repo.dart';
+import 'package:miniproject1/pages/profile/setting_screen.dart';
+import 'package:miniproject1/services/product/repo.dart';
 
-import 'cart_page.dart';
+import '../../bloc/product/prod_bloc.dart';
+import '../../bloc/product/prod_event.dart';
+import '../../bloc/product/prod_state.dart';
+import '../cart/cart_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,10 +19,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     CartPage(),
-    ProfilePage(),
+    SettingsScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -273,16 +274,16 @@ class HomePage extends StatelessWidget {
 //   }
 // }
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Profile Page',
-        style: TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
+// class ProfilePage extends StatelessWidget {
+//   const ProfilePage({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Text(
+//         'Profile Page',
+//         style: TextStyle(fontSize: 24),
+//       ),
+//     );
+//   }
+// }

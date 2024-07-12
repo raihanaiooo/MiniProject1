@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:miniproject1/bloc/cart_products/cart_products_event.dart';
-import 'package:miniproject1/bloc/cart_products/cart_products_state.dart';
 
-import '../../services/cart_product_repository.dart';
+import '../../../services/cart/cart_product_repository.dart';
+import 'cart_products_event.dart';
+import 'cart_products_state.dart';
 
 class CartProductsBloc extends Bloc<CartProductsEvent, CartProductsState> {
   final CartProductRepository _cartProductRepository;

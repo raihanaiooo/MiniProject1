@@ -1,19 +1,19 @@
 import 'package:go_router/go_router.dart';
-import 'package:miniproject1/cart_page.dart';
-import 'package:miniproject1/checkout/check_out_page.dart';
-import 'package:miniproject1/confirm_order.dart';
-import 'package:miniproject1/shipping_page.dart';
-import 'package:miniproject1/transfer.dart';
+import 'package:miniproject1/pages/cart/cart_page.dart';
+import 'package:miniproject1/pages/cart/check_out_page.dart';
+import 'package:miniproject1/pages/cart/confirm_order.dart';
+import 'package:miniproject1/pages/cart/shipping_page.dart';
+import 'package:miniproject1/pages/cart/transfer.dart';
+import 'package:miniproject1/pages/profile/setting_screen.dart';
 
-import 'home.dart';
+import 'pages/product/home.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/home',
   routes: [
     GoRoute(
-      path: '/home', // Route for the home page
-      builder: (context, state) =>
-          const Home(), // Use your colleague's Home widget
+      path: '/home',
+      builder: (context, state) => const Home(),
     ),
     GoRoute(
       path: '/cart',
@@ -45,6 +45,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/confirm_order',
       builder: (context, state) => const ConfirmOrder(),
-    )
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
+    ),
   ],
 );

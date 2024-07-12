@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../model/product_cart_model.dart';
+import '../../../model/product_cart_model.dart';
 
 @immutable
 abstract class CartProductsState extends Equatable {}

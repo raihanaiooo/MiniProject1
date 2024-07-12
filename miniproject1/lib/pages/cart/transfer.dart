@@ -6,7 +6,7 @@ import 'package:miniproject1/bloc/cart/cart_bloc.dart';
 import 'package:miniproject1/bloc/cart/cart_event.dart';
 import 'package:miniproject1/resources/colors.dart';
 import 'package:miniproject1/resources/styles.dart';
-import 'package:miniproject1/services/cart_repository.dart';
+import 'package:miniproject1/services/cart/cart_repository.dart';
 
 class TransferPage extends StatefulWidget {
   final double totalPrice;
