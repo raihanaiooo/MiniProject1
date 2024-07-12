@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:miniproject1/pages/product/widgets/bottom_navbar.dart';
 import 'package:miniproject1/pages/product/widgets/home_page.dart';
 import 'package:miniproject1/pages/profile/setting_screen.dart';
@@ -71,7 +72,9 @@ class _HomeState extends State<Home> {
                   IconButton(
                     icon: Icon(Icons.shopping_cart),
                     color: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push('/cart');
+                    },
                   ),
                 ],
               )
