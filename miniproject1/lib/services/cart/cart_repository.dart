@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:miniproject1/model/cart_model.dart';
+import 'package:miniproject1/models/cart/cart_model.dart';
 
 class CartRepository {
   Future<List<Cart>> getCarts() async {

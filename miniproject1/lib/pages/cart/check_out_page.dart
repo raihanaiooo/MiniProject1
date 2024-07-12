@@ -4,8 +4,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:miniproject1/bloc/cart/cart_bloc.dart';
 import 'package:miniproject1/bloc/cart/cart_event.dart';
-import 'package:miniproject1/resources/colors.dart';
-import 'package:miniproject1/resources/styles.dart';
+import 'package:miniproject1/pages/cart/resources/colors.dart';
+import 'package:miniproject1/pages/cart/resources/styles.dart';
 
 import '../../services/cart/cart_repository.dart';
 

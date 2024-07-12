@@ -4,9 +4,8 @@ import 'package:miniproject1/pages/cart/check_out_page.dart';
 import 'package:miniproject1/pages/cart/confirm_order.dart';
 import 'package:miniproject1/pages/cart/shipping_page.dart';
 import 'package:miniproject1/pages/cart/transfer.dart';
+import 'package:miniproject1/pages/product/home.dart';
 import 'package:miniproject1/pages/profile/setting_screen.dart';
-
-import 'pages/product/home.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/home',

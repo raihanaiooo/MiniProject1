@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:miniproject1/bloc/cart/cart_bloc.dart';
 import 'package:miniproject1/bloc/cart/cart_event.dart';
-import 'package:miniproject1/resources/colors.dart';
-import 'package:miniproject1/resources/styles.dart';
+import 'package:miniproject1/pages/cart/resources/colors.dart';
+import 'package:miniproject1/pages/cart/resources/styles.dart';
 import 'package:miniproject1/services/cart/cart_repository.dart';
 
 class ShippingPage extends StatelessWidget {

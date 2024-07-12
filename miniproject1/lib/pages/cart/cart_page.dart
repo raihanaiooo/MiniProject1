@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:miniproject1/bloc/cart/cart_bloc.dart';
-import 'package:miniproject1/model/cart_model.dart';
-import 'package:miniproject1/model/product_cart_model.dart';
+import 'package:miniproject1/models/cart/cart_model.dart';
+import 'package:miniproject1/models/cart/product_cart_model.dart';
+import 'package:miniproject1/models/cart/product_quantity_cart_model.dart';
+import 'package:miniproject1/pages/cart/resources/colors.dart';
+import 'package:miniproject1/pages/cart/resources/styles.dart';
 import 'package:miniproject1/pages/cart/utility/checkbox.dart';
-import 'package:miniproject1/resources/colors.dart';
-import 'package:miniproject1/resources/styles.dart';
 import 'package:miniproject1/services/cart/cart_product_repository.dart';
 import 'package:miniproject1/services/cart/cart_repository.dart';
 
@@ -15,7 +16,6 @@ import '../../bloc/cart/cart_products/cart_products_bloc.dart';
 import '../../bloc/cart/cart_products/cart_products_event.dart';
 import '../../bloc/cart/cart_products/cart_products_state.dart';
 import '../../bloc/cart/cart_state.dart';
-import '../../model/product_quantity_cart_model.dart';
 import 'utility/counter.dart';
 
 class CartPage extends StatefulWidget {

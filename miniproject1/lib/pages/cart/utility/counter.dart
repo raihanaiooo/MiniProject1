@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:miniproject1/resources/colors.dart';
-import 'package:miniproject1/resources/styles.dart'; // Adjust the import according to your project structure
+
+import '../resources/colors.dart';
+import '../resources/styles.dart';
 
 class CounterWidget extends StatefulWidget {
   final int initialQuantity;

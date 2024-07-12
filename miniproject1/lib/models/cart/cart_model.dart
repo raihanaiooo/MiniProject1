@@ -1,4 +1,4 @@
-import 'package:miniproject1/model/product_quantity_cart_model.dart';
+import 'package:miniproject1/models/cart/product_quantity_cart_model.dart';
 
 class Cart {
   final int id;

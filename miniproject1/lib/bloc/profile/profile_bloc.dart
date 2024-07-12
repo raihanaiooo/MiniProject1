@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../../models/profile_model.dart';
+import '../../models/profile/profile_model.dart';
 import '../../services/profile/profile_service.dart';
 
 part 'profile_event.dart';

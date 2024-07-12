@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:miniproject1/resources/colors.dart';
+
+import '../resources/colors.dart';
 
 class CheckboxApp extends StatefulWidget {
   final Function(bool) onChanged;
@@ -29,7 +30,7 @@ class _CheckboxApp extends State<CheckboxApp> {
               });
               widget.onChanged(isChecked);
             },
-            activeColor: primaryColor, // Set the checked color here
+            activeColor: primaryColor,
           ),
         ],
       ),

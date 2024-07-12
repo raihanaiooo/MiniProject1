@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../models/profile_model.dart';
+import '../../models/profile/profile_model.dart';
 
 class ProfileService {
   final String url = 'https://fakestoreapi.com/users/1';

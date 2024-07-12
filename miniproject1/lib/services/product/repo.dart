@@ -1,6 +1,7 @@
 import 'dart:convert';
+
 import 'package:http/http.dart';
-import 'package:miniproject1/model/model.dart';
+import 'package:miniproject1/models/product/model.dart';
 
 class Repo {
   String prodsUrl = 'https://fakestoreapi.com/products';
