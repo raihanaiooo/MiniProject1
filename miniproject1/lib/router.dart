@@ -5,11 +5,18 @@ import 'package:miniproject1/confirm_order.dart';
 import 'package:miniproject1/shipping_page.dart';
 import 'package:miniproject1/transfer.dart';
 
+import 'home.dart';
+
 final GoRouter router = GoRouter(
   initialLocation: '/home',
   routes: [
     GoRoute(
-      path: '/home',
+      path: '/home', // Route for the home page
+      builder: (context, state) =>
+          const Home(), // Use your colleague's Home widget
+    ),
+    GoRoute(
+      path: '/cart',
       builder: (context, state) => const CartPage(),
     ),
     GoRoute(
