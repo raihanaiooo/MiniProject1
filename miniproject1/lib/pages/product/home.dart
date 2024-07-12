@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:miniproject1/pages/product/widgets/bottom_navbar.dart';
 import 'package:miniproject1/pages/product/widgets/home_page.dart';
 import 'package:miniproject1/pages/profile/setting_screen.dart';
-
 import '../../bloc/product/prod_bloc.dart';
 import '../../bloc/product/prod_event.dart';
 import '../../services/product/repo.dart';
@@ -46,6 +45,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         appBar: showAppBar
             ? AppBar(
+                automaticallyImplyLeading: false, // Hide the back button
                 backgroundColor: Color.fromRGBO(30, 126, 212, 1),
                 elevation: 0,
                 title: Container(

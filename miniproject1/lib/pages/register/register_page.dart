@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:miniproject1/pages/cart/resources/colors.dart';
 
@@ -24,7 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            SizedBox(height: 40), // Added space at the top
+            SizedBox(height: 140), // Added space at the top
             Text(
               'Register Account',
               style: GoogleFonts.raleway(
@@ -34,7 +35,8 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             SizedBox(height: 8), // Adjusted spacing
             Text(
-              'Fill Your Details Or Continue With Social Media',
+              'Fill Your Details Or Continue With \nSocial Media',
+              textAlign: TextAlign.center,
               style: GoogleFonts.raleway(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
@@ -64,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     filled: true,
                     fillColor: Color(0xFFF7F7F9),
-                    contentPadding: EdgeInsets.all(16),
+                    contentPadding: EdgeInsets.all(20),
                   ),
                 ),
                 SizedBox(height: 16),
@@ -87,7 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     filled: true,
                     fillColor: Color(0xFFF7F7F9),
-                    contentPadding: EdgeInsets.all(16),
+                    contentPadding: EdgeInsets.all(20),
                   ),
                 ),
                 SizedBox(height: 16),
@@ -111,7 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     filled: true,
                     fillColor: Color(0xFFF7F7F9),
-                    contentPadding: EdgeInsets.all(16),
+                    contentPadding: EdgeInsets.all(20),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility : Icons.visibility_off,
@@ -138,13 +140,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   minimumSize: Size(double.infinity, 45),
+                  fixedSize: Size(335, 50),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 child: Text(
-                  'Register',
+                  'Sign Up',
                   style: GoogleFonts.raleway(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -169,6 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFF7F7F9),
                   minimumSize: Size(double.infinity, 45),
+                  fixedSize: Size(335, 50),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -211,20 +215,20 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // context.push('/login');
+                    context.push('/login');
                   },
                   child: Text(
                     'Log in',
                     style: GoogleFonts.raleway(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF6A6A6A),
+                      color: Color(0xFF2B2B2B),
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 50),
           ],
         ),
       ),

@@ -10,7 +10,6 @@ import 'package:miniproject1/pages/cart/resources/styles.dart';
 import 'package:miniproject1/pages/cart/utility/checkbox.dart';
 import 'package:miniproject1/services/cart/cart_product_repository.dart';
 import 'package:miniproject1/services/cart/cart_repository.dart';
-
 import '../../bloc/cart/cart_event.dart';
 import '../../bloc/cart/cart_products/cart_products_bloc.dart';
 import '../../bloc/cart/cart_products/cart_products_event.dart';
@@ -58,13 +57,8 @@ class _CartPageState extends State<CartPage> {
       child: Scaffold(
         backgroundColor: secondaryColor, // Set the background color here
         appBar: AppBar(
+          automaticallyImplyLeading: false, // Hide the back button
           backgroundColor: secondaryColor,
-          // leading: IconButton(
-          //   icon: Icon(Icons.arrow_back_ios_new),
-          //   onPressed: () {
-          //     Navigator.of(context).pop();
-          //   },
-          // ),
           title: Text(
             'Cart',
             style: Styles.appbarText.copyWith(color: primaryText),

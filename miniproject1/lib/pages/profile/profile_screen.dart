@@ -213,23 +213,6 @@ class ProfileScreen extends StatelessWidget {
             return Center(child: Text('Please wait...'));
           },
         ),
-        // bottomNavigationBar: BottomNavigationBar(
-        //   currentIndex: 2,
-        //   items: const [
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.home_outlined),
-        //       label: 'Home',
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.shopping_cart_outlined),
-        //       label: 'Applications',
-        //     ),
-        //     BottomNavigationBarItem(
-        //       icon: Icon(Icons.person_2_outlined),
-        //       label: 'Profile',
-        //     ),
-        //   ],
-        // ),
       ),
     );
   }

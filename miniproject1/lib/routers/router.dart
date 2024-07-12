@@ -7,10 +7,21 @@ import 'package:miniproject1/pages/cart/transfer.dart';
 import 'package:miniproject1/pages/product/home.dart';
 import 'package:miniproject1/pages/profile/setting_screen.dart';
 import 'package:miniproject1/register_page.dart';
+import 'package:miniproject1/login_page.dart';
+
+import 'package:miniproject1/splashscreen.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/splash',
   routes: [
+    GoRoute(
+      path: '/splash',
+      builder: (context, state) => SplashScreen(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => LoginPage(),
+    ),
     GoRoute(
       path: '/home',
       builder: (context, state) => const Home(),

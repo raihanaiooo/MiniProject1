@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:miniproject1/pages/profile/profile_screen.dart';
 import 'package:miniproject1/services/profile/profile_service.dart';
-
 import '../../bloc/profile/profile_bloc.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -16,6 +15,7 @@ class SettingsScreen extends StatelessWidget {
           ProfileBloc(ProfileService())..add(LoadProfileEvent()),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false, // Hide the back button
           backgroundColor: const Color(0xFF1E7ED4),
           title: const Text(
             'Akun',
