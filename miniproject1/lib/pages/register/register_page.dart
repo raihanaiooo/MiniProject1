@@ -21,15 +21,15 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            SizedBox(height: 140), // Added space at the top
+            SizedBox(height: 30), // Added space at the top
             Text(
               'Register Account',
               style: GoogleFonts.raleway(
-                fontSize: 32,
+                fontSize: 25,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
               'Fill Your Details Or Continue With \nSocial Media',
               textAlign: TextAlign.center,
               style: GoogleFonts.raleway(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Color(0xFF707B81),
               ),
@@ -198,7 +198,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            Spacer(),
+            SizedBox(height: 24), // Adjusted spacing
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

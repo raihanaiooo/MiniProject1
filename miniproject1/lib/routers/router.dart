@@ -6,10 +6,10 @@ import 'package:miniproject1/pages/cart/shipping_page.dart';
 import 'package:miniproject1/pages/cart/transfer.dart';
 import 'package:miniproject1/pages/product/home.dart';
 import 'package:miniproject1/pages/profile/setting_screen.dart';
-import 'package:miniproject1/register_page.dart';
-import 'package:miniproject1/login_page.dart';
+import 'package:miniproject1/pages/register/register_page.dart';
+import 'package:miniproject1/pages/login/login_page.dart';
 
-import 'package:miniproject1/splashscreen.dart';
+import 'package:miniproject1/pages/splashscreen/splashscreen.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/splash',

@@ -158,92 +158,96 @@ class _CartPageState extends State<CartPage> {
                                         ),
                                       );
 
-                                      return ListTile(
-                                        title: DefaultTextStyle(
-                                          style: Styles.title
-                                              .copyWith(color: primaryText),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              CheckboxApp(
-                                                onChanged: (isChecked) {
-                                                  _onItemChecked(
-                                                    cartProduct.productId,
-                                                    isChecked,
-                                                    product.price,
-                                                    cartProduct.quantity,
-                                                  );
-                                                },
+                                      return Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            CheckboxApp(
+                                              onChanged: (isChecked) {
+                                                _onItemChecked(
+                                                  cartProduct.productId,
+                                                  isChecked,
+                                                  product.price,
+                                                  cartProduct.quantity,
+                                                );
+                                              },
+                                            ),
+                                            SizedBox(
+                                                width:
+                                                    8), // Add some space between the two containers
+                                            Container(
+                                              width: 100,
+                                              height: 100,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
                                               ),
-                                              SizedBox(
-                                                  width:
-                                                      8), // Add some space between the two containers
-                                              Container(
-                                                width: 100,
-                                                height: 100,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(8),
-                                                  child: product
-                                                          .image.isNotEmpty
-                                                      ? Image.network(
-                                                          product.image,
-                                                          fit: BoxFit.contain,
-                                                        )
-                                                      : Image.asset(
-                                                          "assets/images/shirt.png",
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(8),
+                                                child: product.image.isNotEmpty
+                                                    ? Image.network(
+                                                        product.image,
+                                                        fit: BoxFit.contain,
+                                                      )
+                                                    : Image.asset(
+                                                        "assets/images/shirt.png",
+                                                        fit: BoxFit.cover,
+                                                      ),
                                               ),
-                                              SizedBox(
-                                                  width:
-                                                      16), // Add space between the image container and text
-                                              Expanded(
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(product.title,
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600)),
-                                                    SizedBox(height: 8),
-                                                    Text(product.category,
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w400)),
-                                                    SizedBox(height: 16),
-                                                    Row(
-                                                      children: [
-                                                        Text(
-                                                            '\$${product.price}',
-                                                            style: TextStyle(
-                                                                color:
-                                                                    primaryColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700)),
-                                                        Spacer(), // Takes up the remaining space
-                                                        CounterWidget(
-                                                            initialQuantity:
-                                                                cartProduct
-                                                                    .quantity),
-                                                      ],
+                                            ),
+                                            SizedBox(
+                                                width:
+                                                    16), // Add space between the image container and text
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    product.title,
+                                                    style:
+                                                        Styles.title.copyWith(
+                                                      color: primaryText,
+                                                      fontWeight:
+                                                          FontWeight.w600,
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                  SizedBox(height: 8),
+                                                  Text(
+                                                    product.category,
+                                                    style:
+                                                        Styles.title.copyWith(
+                                                      color: primaryText,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                    ),
+                                                  ),
+                                                  SizedBox(height: 16),
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '\$${product.price}',
+                                                        style: TextStyle(
+                                                          color: primaryColor,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                        ),
+                                                      ),
+                                                      Spacer(), // Takes up the remaining space
+                                                      CounterWidget(
+                                                        initialQuantity:
+                                                            cartProduct
+                                                                .quantity,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       );
                                     },
@@ -268,15 +272,14 @@ class _CartPageState extends State<CartPage> {
                                           Text(
                                             '\$${_totalPrice.toStringAsFixed(2)}',
                                             style: Styles.title.copyWith(
-                                                color: primaryColor,
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 16),
+                                              color: primaryColor,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 16,
+                                            ),
                                           ),
                                         ],
                                       ),
-                                      SizedBox(
-                                        width: 16,
-                                      ),
+                                      SizedBox(width: 16),
                                       Expanded(
                                         child: ElevatedButton(
                                           onPressed: () {
@@ -294,8 +297,9 @@ class _CartPageState extends State<CartPage> {
                                           ),
                                           child: Text(
                                             'Checkout',
-                                            style: Styles.title
-                                                .copyWith(color: Colors.white),
+                                            style: Styles.title.copyWith(
+                                              color: Colors.white,
+                                            ),
                                           ),
                                         ),
                                       ),

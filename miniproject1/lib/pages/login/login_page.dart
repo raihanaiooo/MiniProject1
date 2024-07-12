@@ -20,15 +20,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            SizedBox(height: 150), // Added space at the top
+            SizedBox(height: 35), // Added space at the top
             Text(
               'Hello Again!',
               style: GoogleFonts.raleway(
-                fontSize: 32,
+                fontSize: 25,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -37,20 +37,19 @@ class _LoginPageState extends State<LoginPage> {
               'Fill Your Details Or Continue With \nSocial Media',
               textAlign: TextAlign.center,
               style: GoogleFonts.raleway(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Color(0xFF707B81),
-                
               ),
             ),
-            SizedBox(height: 48), // Adjusted spacing
+            SizedBox(height: 40), // Adjusted spacing
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Email Address',
                   style: GoogleFonts.raleway(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF2B2B2B),
                   ),
@@ -73,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   'Password',
                   style: GoogleFonts.raleway(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF6A6A6A),
                   ),
@@ -191,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Spacer(),
+            SizedBox(height: 24), // Adjusted spacing
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
